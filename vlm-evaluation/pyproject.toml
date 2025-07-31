@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vlm_eval"
+authors = [
+    {name = "Siddharth Karamcheti", email="skaramcheti@cs.stanford.edu"},
+    {name = "Suraj Nair", email="suraj.nair@tri.global"},
+    {name = "Ashwin Balakrishna", email="ashwin.balakrishna@tri.global"}
+]
+description = "VLM Eval: Benchmark for VLMs, spanning text generation tasks from VQA to Captioning"
+version = "0.0.1"
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["machine learning"]
+license = {file = "LICENSE"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "matplotlib==3.9.1",
+    "scikit-image==0.24.0",
+    "pycocotools==2.0.8",
+]
+
+[project.urls]
+homepage = "https://github.com/TRI-ML/vlm-evaluation"
+repository = "https://github.com/TRI-ML/vlm-evaluation"
+documentation = "https://github.com/TRI-ML/vlm-evaluation"
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["cache"]
+
+[tool.black]
+line-length = 121
+target-version = ["py38", "py39", "py310"]
+preview = true
+
+[tool.ruff]
+line-length = 121
+target-version = "py38"
+select = ["A", "B", "C90", "E", "F", "I", "RUF", "W"]
+ignore = ["B008", "F722"]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["E402", "F401"]
